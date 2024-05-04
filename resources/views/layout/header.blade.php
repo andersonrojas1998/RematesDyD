@@ -5,8 +5,8 @@
             <a href="{{ route('home') }}">
                 <img src="{{ asset('img/logo1.png') }}" alt="logo" style ="height: 90px;
         max-height: 70px;
-        max-width: 310px;
-        width: 310px;border-radius:15px;
+        max-width: 290px;
+        width: 290px;border-radius:15px;
         image-rendering: auto;
         " />
             </a>
@@ -17,11 +17,17 @@
                     <input type="text" class="form-control" placeholder="Buscar productos">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent">
-                            <i class="fa fa-search"></i>
+                            <i class="fa fa-search text-white"></i>
                         </span>
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="col-lg-2 col-2 text-left ml-auto">
+                <a>
+                <i class="fa fa-user-circle text-white" style="font-size:25px;"></i>
+                    <p class="text-white">Mi cuenta</p>
+                </a>
         </div>
     </div>
 </div>
