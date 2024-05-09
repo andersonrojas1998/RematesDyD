@@ -42,9 +42,12 @@
             <h3 class="font-weight-semi-bold">{{ $product->name }}</h3>
             <p class="mb-4">{{ $product->description }}</p>
             <div class="d-flex align-items-center mb-4 pt-2">
-                <button class="d-flex justify-content-center align-items-center btn btn-success px-3">
-                    <i class="fab fa-whatsapp fa-2x mr-1" aria-hidden="true"></i>
-                    Contactar un asesor</button>
+                <a href="https://api.whatsapp.com/send?phone=573102086587&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal" title="Chat whatsapp" target="_blank">
+                    <button class="d-flex justify-content-center align-items-center btn btn-success px-3">
+                        <i class="fab fa-whatsapp fa-2x mr-1" aria-hidden="true"></i>
+                        Contactar un asesor
+                    </button>
+                </a>
             </div>
         </div>
     </div>

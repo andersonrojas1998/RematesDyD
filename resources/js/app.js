@@ -23,8 +23,11 @@
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.back-to-top').fadeIn('slow');
+            $('.float-btn-whatsapp').css('bottom', '90px');
+            $('.back-to-top .float-btn-whatsapp').css('animation', 'action 1s infinite alternate');
         } else {
             $('.back-to-top').fadeOut('slow');
+            $('.float-btn-whatsapp').css('bottom', '30px');
         }
     });
     $('.back-to-top').click(function () {
