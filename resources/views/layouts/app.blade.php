@@ -11,6 +11,26 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+
+    <script src="js/datatable/jquery.datatable.min.js"></script>
+    <script src="js/datatable/bootstrap.datatable.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+                  
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -79,7 +99,7 @@
             @yield('content')
         </main>
     </div>
-    @yield('scripts')
+    @stack('scripts')
 
 </body>
 </html>

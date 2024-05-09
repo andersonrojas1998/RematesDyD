@@ -3,10 +3,16 @@
 @section('content')
 <div class="d-flex justify-content-center">
    <div class="row">
-        <div class="card">       
+        <div class="card"> 
+          <div class="card-header">
+            <div class="d-flex justify-content-lg-end">
+            <button class="btn btn-success">Crear Producto  </button>
+            </div>
+            
+          </div>      
         <div class="card-body">
             <h5 class="card-title">Administracion de Productos</h5>
-            <p class="card-text">Ingrese los productos del almancen.</p>
+            <p class="card-text">Ingrese los productos del almacen.</p>
     <div class="col-lg-12">
 
     <table class="table" id="table-product">
@@ -18,6 +24,7 @@
       <th scope="col">Detalle</th>
       <th scope="col">Imagen</th>
       <th scope="col">Descuento</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -44,6 +51,6 @@
 
 @push('scripts')
 
-    <script src="{{ asset('/lib/product.js') }}"></script>    
+    <script src="{{ asset('/lib/home.js') }}"></script>    
 
 @endpush

@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-    employmentList();
+    dt_products();
 
 
 });
 
-
+/*
 var employmentList=function(){
 
     $.ajax({
@@ -31,15 +31,16 @@ var employmentList=function(){
         }
     });    
 }
+*/
 
-function dt_employed(){
+function dt_products(){
 
     $('#table-product').DataTable({
         dom: 'Bfrtip',
         destroy:true,
         buttons: ['excel', 'pdf'],
         ajax:{
-            url:  '/enterprise/employmentList',
+            url:  '/products/list',
             method: "GET",
             headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
             dataSrc: function(json){
@@ -54,31 +55,13 @@ function dt_employed(){
             {"className": "text-center", "targets": "_all"},
         ],
         columns:[
-            {"data": "con", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},
-            {"data": "oferta", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},
+            {"data": "id", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},
+            {"data": "titulo", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},
             {"data": "descripcion", render(data){ return '<p class="text-uppercase"> '+ data +'</p>' ;  } },            
-            {"data": "empresa", render(data){ return '<a href="" class="text-uppercase"> '+ data +'</a>' ;  } },            
-            {"data": "rango", render(data){ return '<p class="text-uppercase text-dark"> '+ data +'</p>' ;  } },            
-            {"data": "fecha_publicacion", render(data){ return '<p class="text-uppercase"> '+ data +'</p>' ;  }},            
-            {"data": "ciudad", render(data){ return '<p class="text-uppercase"> '+ data +'</p>' ;  }},            
-
-            { "data": "estado",render(data){ 
-                let color=(data="Disponible")? 'badge-success':'badge-warning';
-                return '<h4><label class="badge text-white '+color+'">'+ data  +'</label></h4>';
-             }},
-             { "data": "postulados",render(data){                 
-                return '<h4><label class="badge text-white badge-success">'+ data  +'</label></h4>';
-             }},
+            {"data": "detalle", render(data){ return '<a href="" class="text-uppercase"> '+ data +'</a>' ;  } },            
+            {"data": "imagen", render(data){ return '<img src="'+data+'" width="200" height="100"> </img>' ;  } },            
+            {"data": "descuento", render(data){  return '<p class="text-uppercase"> '+ data +'</p>' ; }},
+            {"data": "descuento", render(data){  return '<button class="btn btn-danger">Eliminar <i class="glyphicon glyphicon-minus"></i></button>' ; }}
         ],
-
-        rowCallback:function(row,data,index){
-            let cantidad=data.cantidad;
-            switch(true){                
-                case (parseInt(cantidad) >= 0 && parseInt(cantidad) <= 5):
-                    $('td', row).css('background-color', 'rgba(238, 249, 71, 0.35)');
-                break;                
-            }
-        }
-
     });
  }

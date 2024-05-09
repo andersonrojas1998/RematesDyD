@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
-
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,9 @@ Route::get('/LoginPage', [HomeController::class, 'indexLogin']);
 
 Auth::routes();
 Route::get('/administrador', [HomeController::class, 'indexApp']);
+Route::get('/products/list', [ProductsController::class, 'getProducts']);
+
+
 
 
  
