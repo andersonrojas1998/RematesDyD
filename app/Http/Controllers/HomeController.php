@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
     protected $banners;
     protected $brands;
     protected $categories;
     protected $offers;
     protected $trendProducts;
     protected $newProducts;
-
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
+        //$this->middleware('auth');
         $this->loadBanners();
         $this->loadBrands();
         $this->loadCategories();
@@ -27,6 +33,24 @@ class HomeController extends Controller
         $this->loadTrendProducts();
         $this->loadNewProducts();
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+   public function indexLogin()
+    {
+        return view('auth.login');
+    }
+    public function indexApp()
+    {
+        return view('productos.product');
+    }
+
+   
+
+   
 
     public function index(){
         $banners = $this->banners;
@@ -244,4 +268,5 @@ class HomeController extends Controller
     protected function loadNewProducts(){
         $this->newProducts = $this->loadProducts();
     }
+
 }

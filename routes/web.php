@@ -23,3 +23,13 @@ Route::controller(ShopController::class)->group(function(){
     Route::get('/productsByCategory/{id}', 'productsByCategory')->name('productsByCategory');
     Route::get('/detalle/{id}', 'show')->name('detail');
 });
+Route::get('/LoginPage', [HomeController::class, 'indexLogin']);
+
+
+
+Auth::routes();
+Route::get('/administrador', [HomeController::class, 'indexApp']);
+
+
+ 
+
