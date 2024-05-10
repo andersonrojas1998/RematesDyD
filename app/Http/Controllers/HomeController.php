@@ -17,6 +17,24 @@ class HomeController extends Controller
         $this->loadOffers();
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+   public function indexLogin()
+    {
+        return view('auth.login');
+    }
+    public function indexApp()
+    {
+        return view('productos.product');
+    }
+
+   
+
+   
+
     public function index(){
         $banners = Banner::orderBy('orden')->get();
         $brands = Brand::all();

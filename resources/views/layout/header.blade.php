@@ -24,7 +24,7 @@
             </form>
         </div>
         <div class="col-lg-2 col-2 text-left ml-auto">
-                <a>
+                <a href="{{ url('LoginPage')}}">
                 <i class="fa fa-user-circle text-white" style="font-size:25px;"></i>
                     <p class="text-white">Mi cuenta</p>
                 </a>
