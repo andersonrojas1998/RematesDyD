@@ -9,14 +9,14 @@
         <div class="carousel-inner">
             @foreach($banners as $key => $banner)
             <div class="carousel-item {{ ($key == 0)? 'active':'' }}" style="height: 410px;">
-                <img class="img-fluid" src="{{ $banner->img }}" alt="{{ $banner->title }}">
+                <img class="img-fluid" src="{{ $banner->imagen }}" alt="{{ $banner->titulo }}">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">
-                            {{ $banner->subtitle }}
+                            {{ $banner->subtitulo }}
                         </h4>
-                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">{{ $banner->title }}</h3>
-                        <a href="{{ $banner->link }}" class="btn btn-light py-2 px-3">{{ $banner->linkDescription }}</a>
+                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">{{ $banner->titulo }}</h3>
+                        <a href="{{ route('shop') }}" class="btn btn-light py-2 px-3">Ver m&aacute;s</a>
                     </div>
                 </div>
             </div>
@@ -52,12 +52,12 @@
                         <a href="{{ $category->route }}" class="cat-img position-relative overflow-hidden mb-3">
                             <img
                             class="img-fluid"
-                            src="{{ $category->img }}"
-                            alt="{{ $category->name }}"
+                            src="{{ $category->imagen }}"
+                            alt="{{ $category->titulo }}"
                             style="height: 16.3em;"
                             >
                         </a>
-                        <h5 class="font-weight-semi-bold m-0">{{ $category->name }}</h5>
+                        <h5 class="font-weight-semi-bold m-0">{{ $category->titulo }}</h5>
                     </div>
                 @endforeach
             </div>
@@ -109,22 +109,22 @@
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    @if($product->discount && $product->discount > 0)
+                    @if($product->descuento && $product->descuento > 0)
                     <p class="text-right w-100 position-absolute">
                         <span class="fa-stack fa-2x">
                             <i class="fas fa-certificate fa-stack-2x text-danger"></i>
                             <span class="fa fa-stack-1x text-light">
                                 <span class="align-top" style="font-size: 0.7em;">
-                                    {{ $product->discount }}%
+                                    {{ $product->descuento }}%
                                 </span>
                             </span>
                         </span>
                     </p>
                     @endif
-                    <img class="img-fluid w-100" src="{{ $product->img }}" alt="">
+                    <img class="img-fluid w-100" src="{{ $product->imagen }}" alt="">
                 </div>
                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">{{ $product->name }}</h6>
+                    <h6 class="text-truncate mb-3">{{ $product->titulo }}</h6>
                 </div>
                 <div class="card-footer d-flex justify-content-center bg-light border">
                     <a href="{{ $product->route }}" class="btn btn-sm text-dark p-0">
@@ -149,10 +149,22 @@
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{{ $product->img }}" alt="{{ $product->name }}">
+                    @if($product->descuento && $product->descuento > 0)
+                    <p class="text-right w-100 position-absolute">
+                        <span class="fa-stack fa-2x">
+                            <i class="fas fa-certificate fa-stack-2x text-danger"></i>
+                            <span class="fa fa-stack-1x text-light">
+                                <span class="align-top" style="font-size: 0.7em;">
+                                    {{ $product->descuento }}%
+                                </span>
+                            </span>
+                        </span>
+                    </p>
+                    @endif
+                    <img class="img-fluid w-100" src="{{ $product->imagen }}" alt="{{ $product->titulo }}">
                 </div>
                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">{{ $product->name }}</h6>
+                    <h6 class="text-truncate mb-3">{{ $product->titulo }}</h6>
                 </div>
                 <div class="card-footer d-flex justify-content-center bg-light border">
                     <a href="{{ $product->route }}" class="btn btn-sm text-dark p-0">
@@ -174,7 +186,7 @@
             <div class="owl-carousel vendor-carousel">
                 @foreach($brands as $brand)
                 <div class="vendor-item border p-4">
-                    <img src="{{ $brand->img }}" alt="">
+                    <img src="{{ $brand->imagen }}" alt="">
                 </div>
                 @endforeach
             </div>

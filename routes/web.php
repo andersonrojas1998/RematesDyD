@@ -21,5 +21,5 @@ Route::controller(ShopController::class)->group(function(){
     Route::get('/tienda', 'index')->name('shop');
     Route::get('/tienda/{category}', 'index')->name('shop.category');
     Route::get('/productsByCategory/{id}', 'productsByCategory')->name('productsByCategory');
-    Route::get('/detalle/{id}', 'show')->name('detail');
+    Route::get('/detalle/{product}', 'show')->name('detail');
 });

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
+
+    protected $table = 'marcas';
+
+    public function getImagenAttribute($value){
+        return asset($value);
+    }
 }

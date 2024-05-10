@@ -23,7 +23,7 @@
                             </a>
                             <div class="dropdown-menu rounded-0 m-0 position-absolute">
                                 @foreach ($categories as $category)
-                                    {{ html()->a($category['route'], $category['name'])->class('dropdown-item')}}
+                                    {{ html()->a($category->route, $category->titulo)->class('dropdown-item')}}
                                 @endforeach
                             </div>
                         </div>

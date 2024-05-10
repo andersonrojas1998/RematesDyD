@@ -54,7 +54,7 @@
                         id="radio-category-{{ $category->id }}"
                         data-url="{{ route('productsByCategory', $category->id)}}" />
                         <label class="custom-control-label" for="radio-category-{{ $category->id }}">
-                            {{ $category->name }}</label>
+                            {{ $category->titulo }}</label>
                         <span class="badge border font-weight-normal">{{ $category->quantity }}</span>
                     </div>
                     @endforeach
@@ -77,16 +77,14 @@
             <div class="row pb-3">
                 <div class="col-12 pb-1">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <form action="">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar por nombre">
+                                <input type="text" class="form-control" id="searchProduct" placeholder="Buscar por nombre">
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent text-primary">
                                         <i class="fa fa-search"></i>
                                     </span>
                                 </div>
                             </div>
-                        </form>
                         <div class="dropdown ml-4">
                             <button
                             class="btn border dropdown-toggle"
@@ -95,9 +93,8 @@
                                         Ordenar por
                                     </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-                                <a class="dropdown-item" href="#">Lo &uacute;ltimo</a>
-                                <a class="dropdown-item" href="#">Popularidad</a>
-                                <a class="dropdown-item" href="#">Relevancia</a>
+                                <a class="dropdown-item orderBy" data-value="1">Lo &uacute;ltimo</a>
+                                <a class="dropdown-item orderBy" data-value="2">Descuento mayor a menor</a>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,38 @@ let discounts = [
 // All products showed
 let listedProducts = allProducts;
 
+// Ordering products
+$(document).on('click', '.orderBy', function(){
+    let value = $(this).data('value');
+    if(value == 1){
+        listedProducts.sort((a, b) => a.created_at - b.created_at).reverse();
+        listProducts();
+    }else if(value == 2){
+        listedProducts.sort((a, b) => a.descuento - b.descuento).reverse();
+        listProducts();
+    }
+});
+
+// Searching products
+$(document).on('keyup', '#searchProduct', function(event){
+    if(event.which == 13 && $(this).val() != ''){
+        let value = $(this).val();
+        value = value.toLowerCase();
+        let auxListedProducts = [];
+        $.each(listedProducts, function(i, product){
+            if(product.titulo.toLowerCase().includes(value)){
+                auxListedProducts.push(product);
+            }
+        });
+        let keepFilter = listedProducts;
+        listedProducts = auxListedProducts;
+        listProducts();
+        listedProducts = keepFilter;
+    }else if($(this).val() == ''){
+        listProducts();
+    }
+});
+
 let refresh_discount_filter = function(){
     $('#discount-filter').html('');
     let div = '';
@@ -19,7 +51,7 @@ let refresh_discount_filter = function(){
     $.each(discounts, function(i, v){
         let count = 0;
         $.each(listedProducts, function(i, product){
-            if(product.discount && v[0] <= product.discount && v[1] >= product.discount){
+            if(product.descuento && v[0] <= product.descuento && v[1] >= product.descuento){
                 count++;
                 allQuantity++;
             }
@@ -70,7 +102,7 @@ let listProducts = function(){
     $('#products-list').html('');
     $.each(listedProducts, function(i, product){
         let offerTag;
-        if(product.discount && product.discount > 0){
+        if(product.descuento && product.descuento > 0){
             offerTag = $('<p>', {
                 class: 'text-right w-100 position-absolute',
                 html: $('<span>', {
@@ -84,7 +116,7 @@ let listProducts = function(){
                             html: $('<span>', {
                                 class: 'align-top',
                                 style: 'font-size: 0.7em;',
-                                text: product.discount + '%'
+                                text: product.descuento + '%'
                             })
                         })
                     ]
@@ -103,13 +135,13 @@ let listProducts = function(){
                                     offerTag,
                                     $('<img>',{
                                         class: 'img-fluid w-100',
-                                        src: product.img
+                                        src: product.imagen
                                     })
                                 ]
                             }),
                             $('<div>', {
                                 class: 'card-body border-left border-right text-center p-0 pt-4 pb-3',
-                                html: '<h6 class="text-truncate mb-3">' + product.name + '</h6>'
+                                html: '<h6 class="text-truncate mb-3">' + product.titulo + '</h6>'
                             }),
                             $('<div>', {
                                 class: 'card-footer d-flex justify-content-center bg-light border',
@@ -130,7 +162,7 @@ $('.radio-category').change(function(){
     listedProducts = [];
     let checked_category = $(this).val();
     $.each(allProducts, async function(i, product){
-        if(checked_category == product.category || checked_category == -1){
+        if(checked_category == product.categorias_id || checked_category == -1){
             listedProducts.push(product);
         }
     });
@@ -143,7 +175,7 @@ let discount_filter = function(){
     let list_aux = [];
     if(typeof checked_offer !== "undefined"){
         $.each(listedProducts, function(i, product){
-            if((product.discount && (discounts[checked_offer][0] <= product.discount && discounts[checked_offer][1] >= product.discount))){
+            if((product.descuento && (discounts[checked_offer][0] <= product.descuento && discounts[checked_offer][1] >= product.descuento))){
                 list_aux.push(product);
             }
         });

@@ -26,7 +26,7 @@
             <div id="product-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner border">
                     <div class="carousel-item active">
-                        <img class="w-100 h-100" src="{{ $product->img }}" alt="{{ $product->name }}">
+                        <img class="w-100 h-100" src="{{ $product->imagen }}" alt="{{ $product->titulo }}">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -39,8 +39,8 @@
         </div>
 
         <div class="col-lg-7 pb-5">
-            <h3 class="font-weight-semi-bold">{{ $product->name }}</h3>
-            <p class="mb-4">{{ $product->description }}</p>
+            <h3 class="font-weight-semi-bold">{{ $product->titulo }}</h3>
+            <p class="mb-4">{{ $product->descripcion }}</p>
             <div class="d-flex align-items-center mb-4 pt-2">
                 <a href="https://api.whatsapp.com/send?phone=573102086587&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal" title="Chat whatsapp" target="_blank">
                     <button class="d-flex justify-content-center align-items-center btn btn-success px-3">
@@ -59,7 +59,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="tab-pane-1">
                     <h4 class="mb-3">Descripcion del producto</h4>
-                    <p>{{ $product->extended_description }}</p>
+                    <p>{{ $product->detalle }}</p>
                 </div>
             </div>
         </div>
@@ -79,22 +79,22 @@
                 @foreach($trendProducts as $product)
                 <div class="card product-item border-0">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        @if($product->discount && $product->discount > 0)
+                        @if($product->descuento && $product->descuento > 0)
                         <p class="text-right w-100 position-absolute">
                             <span class="fa-stack fa-2x">
                                 <i class="fas fa-certificate fa-stack-2x text-danger"></i>
                                 <span class="fa fa-stack-1x text-light">
                                     <span class="align-top" style="font-size: 0.7em;">
-                                        {{ $product->discount }}%
+                                        {{ $product->descuento }}%
                                     </span>
                                 </span>
                             </span>
                         </p>
                         @endif
-                        <img class="img-fluid w-100" src="{{ $product->img }}" alt="">
+                        <img class="img-fluid w-100" src="{{ $product->imagen }}" alt="">
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">{{ $product->name }}</h6>
+                        <h6 class="text-truncate mb-3">{{ $product->titulo }}</h6>
                     </div>
                     <div class="card-footer d-flex justify-content-center bg-light border">
                         <a href="{{ $product->route }}" class="btn btn-sm text-dark p-0">
