@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <div class="d-flex justify-content-center">
    <div class="row">
-        <div class="card"> 
+         <div class="card"> 
           <div class="card-header">
             <div class="d-flex justify-content-lg-end">
-            <button class="btn btn-success">Crear Producto  </button>
+            <a class="btn btn-primary" href="{{ url('/products/create-product')}}">Crear Producto  </a>
             </div>
             
           </div>      
@@ -30,20 +33,15 @@
   <tbody>
    
   </tbody>
-</table>
-        
-
-                
-            </div>
-
-
+</table>                        
         </div>
         </div>
-
+        </div>
+</div>
 </div>
 
 
-</div>
+<!-- Modal -->
 
 
 @endsection

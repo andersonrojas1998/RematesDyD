@@ -28,10 +28,15 @@ Route::get('/LoginPage', [HomeController::class, 'indexLogin']);
 
 
 Auth::routes();
-Route::get('/administrador', [HomeController::class, 'indexApp']);
-Route::get('/products/list', [ProductsController::class, 'getProducts']);
+Route::get('/administrador', [HomeController::class, 'indexApp'])->name('administrador');
 
 
+Route::group(['prefix' => 'products'], function(){
+    Route::get('/list', [ProductsController::class, 'getProducts']);
+    Route::get('/create-product', [ProductsController::class, 'getIndexCreate']);
+});
+
+Route::post('prd-submit', [ProductsController::class, 'create']);
 
 
  

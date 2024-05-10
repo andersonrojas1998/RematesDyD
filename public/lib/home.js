@@ -61,7 +61,7 @@ function dt_products(){
             {"data": "detalle", render(data){ return '<a href="" class="text-uppercase"> '+ data +'</a>' ;  } },            
             {"data": "imagen", render(data){ return '<img src="'+data+'" width="200" height="100"> </img>' ;  } },            
             {"data": "descuento", render(data){  return '<p class="text-uppercase"> '+ data +'</p>' ; }},
-            {"data": "descuento", render(data){  return '<button class="btn btn-danger">Eliminar <i class="glyphicon glyphicon-minus"></i></button>' ; }}
+            {"data": "", render(data){  return '<button class="btn btn-danger">Eliminar <i class="glyphicon glyphicon-minus"></i></button>' ; }}
         ],
     });
  }
