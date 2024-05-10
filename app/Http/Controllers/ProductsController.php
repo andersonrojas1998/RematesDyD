@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use \DB;
 
 class ProductsController extends Controller
 {
 public function getIndexCreate(){
-    return view('productos.create');
+    $categorias=Category::all();
+    return view('productos.create',compact('categorias'));
 }
 public function create(\Request  $request){
 
@@ -20,7 +22,7 @@ public function create(\Request  $request){
         $p->detalle = $request::input('detalle');
         $p->imagen ='/img/'.$_FILES['imagen']['name'];
         $p->descuento =$request::input('descuento');
-        $p->categorias_id=$request::input('categorias_id'); 
+        $p->categorias_id=$request::input('sel_category'); 
         copy($_FILES['imagen']['tmp_name'],$destination);
         $p->save();
         return redirect()->route('administrador');        
