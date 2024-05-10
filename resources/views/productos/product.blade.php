@@ -22,6 +22,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th>Categoria</th>
       <th scope="col">Titulo</th>
       <th scope="col">Descripcion</th>
       <th scope="col">Detalle</th>

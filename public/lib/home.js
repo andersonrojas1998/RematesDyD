@@ -3,6 +3,33 @@ $(document).ready(function() {
     dt_products();
 
 
+    $(document).on("click",".delete-prd",function(){      
+        let id=$(this).attr('data-id');
+      
+        Swal.fire({
+            title: '\u00A1Atenci\u00f3n!',
+            text: "Estas seguro que deseas Eliminar el producto" ,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, seguro'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/delete-product/'+id,                    
+                    method: 'GET',
+                    dataType: "JSON", 
+                success: function(data){                          
+                    sweetMessage('\u00A1Registro exitoso!', '\u00A1 Se ha realizado con \u00E9xito su solicitud!');                  
+                    setTimeout(function () { location.reload() }, 2000);
+                 }
+                });              
+            }
+          });
+    });
+
+
 });
 
 /*
@@ -56,12 +83,17 @@ function dt_products(){
         ],
         columns:[
             {"data": "id", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},
+            {"data": "categorias_id", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},            
             {"data": "titulo", render(data){ return '<b class="text-primary text-uppercase"> '+ data +'</b>' ;  }},
             {"data": "descripcion", render(data){ return '<p class="text-uppercase"> '+ data +'</p>' ;  } },            
             {"data": "detalle", render(data){ return '<a href="" class="text-uppercase"> '+ data +'</a>' ;  } },            
             {"data": "imagen", render(data){ return '<img src="'+data+'" width="200" height="100"> </img>' ;  } },            
             {"data": "descuento", render(data){  return '<p class="text-uppercase"> '+ data +'</p>' ; }},
-            {"data": "", render(data){  return '<button class="btn btn-danger">Eliminar <i class="glyphicon glyphicon-minus"></i></button>' ; }}
+            {"data": "", render(data,ps,i){             
+                return '<button class="btn btn-danger delete-prd" data-id='+i.id +'>Eliminar <i class="glyphicon glyphicon-minus"></i></button>' ; }}
         ],
     });
  }
+ var sweetMessage= function(title,msg,type='success'){
+    swal.fire(title,msg,type);
+}

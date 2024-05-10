@@ -37,6 +37,7 @@ Route::group(['prefix' => 'products'], function(){
 });
 
 Route::post('prd-submit', [ProductsController::class, 'create']);
+Route::get('/delete-product/{id}', [ProductsController::class, 'deleteProducts']);
 
 
  
