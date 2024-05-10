@@ -154,6 +154,8 @@ CREATE TABLE IF NOT EXISTS `carrousel` (
   `id` int NOT NULL AUTO_INCREMENT,
   `imagen` varchar(80) DEFAULT NULL,
   `orden` int DEFAULT NULL,
+  `titulo` varchar(80),
+  `subtitulo` varchar(80),
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)

@@ -20,7 +20,7 @@
             <h6>Sabados</h6>
             <p class="mb-0">9:00 a.m. a 1:00 p.m.</p>
         </div>
-        <div class="col-lg-8 col-md-12" style="height: 17em">
+        <div class="col-lg-6 col-md-12" style="height: 9em">
             <img class="img-fluid h-100 w-100" src="{{ asset('img/payments.png') }}" alt="">
         </div>
     </div>
@@ -39,3 +39,6 @@
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+<!-- Whatsapp -->
+<a href="https://api.whatsapp.com/send?phone=573102086587&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal" class="btn float-btn-whatsapp" title="Chat whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
