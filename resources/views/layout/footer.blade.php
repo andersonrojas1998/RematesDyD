@@ -39,6 +39,5 @@
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 <!-- Whatsapp -->
-<a href="https://api.whatsapp.com/send?phone=573102086587&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal" class="btn float-btn-whatsapp" title="Chat whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://api.whatsapp.com/send?phone=573102086587&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal" class="btn float-btn-whatsapp" style="border-radius:20px;" title="Chat whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>

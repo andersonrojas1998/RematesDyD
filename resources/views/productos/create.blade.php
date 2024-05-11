@@ -51,20 +51,11 @@
                 </div>
             <div class="col-lg-4 offset-4 pt-5">
                     <button type="submit" class="btn btn-success btn-block"  style="border-radius:5px;">Registrar Producto  <i class="mdi mdi-content-save"></i></button>
-                </div> 
-            
-            
-
-
+            </div>                 
     </div>
-
-
-    
-
     </form>
         </div>
         </div>
-
 </div>
 
 

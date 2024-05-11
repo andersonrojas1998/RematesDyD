@@ -345,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `fk_productos_categorias` FOREIGN KEY (`categorias_id`) REFERENCES `mydb`.`categorias` (`id`);
+  ADD CONSTRAINT `fk_productos_categorias` FOREIGN KEY (`categorias_id`) REFERENCES `rematesdyd`.`categorias` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
