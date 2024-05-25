@@ -14,7 +14,7 @@ class Category extends Model
     protected $append = ['route'];
 
     public function product(){
-        return $this->belongsTo('\App\Models\Product', 'categorias_id', 'id');
+        return $this->belongsTo(Product::class, 'categorias_id', 'id');
     }
 
     public function getRouteAttribute(){

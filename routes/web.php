@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductsController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(ShopController::class)->group(function(){
     Route::get('/tienda', 'index')->name('shop');
     Route::get('/tienda/{category}', 'index')->name('shop.category');
+    Route::post('/tienda/search', 'search')->name('shop.search');
     Route::get('/productsByCategory/{id}', 'productsByCategory')->name('productsByCategory');
     Route::get('/detalle/{product}', 'show')->name('detail');
 });

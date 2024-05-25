@@ -22,11 +22,11 @@
     <div class="row px-xl-5">
         <!-- Shop Sidebar Start -->
         <div class="col-lg-3 col-md-12">
-            <!-- Color Start -->
+            <!-- Category Start -->
             <div class="border-bottom mb-4 pb-4">
                 <h5 class="font-weight-semi-bold mb-4">Filtrar por categor&iacute;a</h5>
-                <form>
-                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
                         <input type="radio"
                         name="category"
                         class="custom-control-input radio-category"
@@ -45,27 +45,26 @@
                         <span class="badge border font-weight-normal">{{ $numOfProducts }}</span>
                     </div>
                     @foreach ($categories as $category)
-                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
                         <input
                         type="radio"
                         name="category"
                         class="custom-control-input radio-category"
                         value="{{ $category->id }}"
-                        id="radio-category-{{ $category->id }}"
-                        data-url="{{ route('productsByCategory', $category->id)}}" />
+                        id="radio-category-{{ $category->id }}"/>
                         <label class="custom-control-label" for="radio-category-{{ $category->id }}">
                             {{ $category->titulo }}</label>
                         <span class="badge border font-weight-normal">{{ $category->quantity }}</span>
                     </div>
                     @endforeach
-                </form>
+                </div>
             </div>
-            <!-- Color End -->
+            <!-- Category End -->
 
             <!-- Off Start -->
             <div class="border-bottom mb-4 pb-4">
                 <h5 class="font-weight-semi-bold mb-4">Filtrar por descuento</h5>
-                <form id="discount-filter"></form>
+                <div id="discount-filter"></div>
             </div>
             <!-- Off End -->
         </div>
@@ -77,14 +76,29 @@
             <div class="row pb-3">
                 <div class="col-12 pb-1">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="searchProduct" placeholder="Buscar por nombre">
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent text-primary">
-                                        <i class="fa fa-search"></i>
-                                    </span>
-                                </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchProduct" placeholder="Buscar por nombre">
+                            <div class="input-group-append">
+                                <span class="input-group-text bg-transparent text-primary">
+                                    <i class="fa fa-search"></i>
+                                </span>
                             </div>
+                        </div>
+                        <div class="dropdown ml-4">
+                            <button
+                            class="btn border dropdown-toggle"
+                            type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                        Listar
+                                    </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                                <a class="dropdown-item numOfListedElements" data-value="15">15</a>
+                                <a class="dropdown-item numOfListedElements" data-value="30">30</a>
+                                <a class="dropdown-item numOfListedElements" data-value="60">60</a>
+                                <a class="dropdown-item numOfListedElements" data-value="100">100</a>
+                                <a class="dropdown-item numOfListedElements" data-value="{{ count($products) }}">Todos</a>
+                            </div>
+                        </div>
                         <div class="dropdown ml-4">
                             <button
                             class="btn border dropdown-toggle"
@@ -100,6 +114,8 @@
                     </div>
                 </div>
                 <div class="row w-100" id="products-list"></div>
+                <div class="col-12 pb-1" id="page-navigation">
+                </div>
             </div>
         </div>
         <!-- Shop Product End -->
@@ -114,6 +130,10 @@
 
     @if($byCategory != 0)
     let byCategory = {{ $byCategory }};
+    @endif
+
+    @if($search != null)
+    let search = '{{ $search }}';
     @endif
 </script>
 

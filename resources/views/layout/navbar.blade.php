@@ -2,9 +2,12 @@
 <div class="container-fluid px-0 {{(\Request::route()->getName() == 'home')? 'mb-5' : ''}}">
     <div class="row border-top px-0">
         <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light py-0 px-0" aria-label="menu">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light py-0 px-0 text-center" aria-label="menu">
+                <a class="d-block d-lg-none" href="{{ route('home') }}">
+                    <img src="{{ asset('img/logo1.png') }}" alt="logo" class="h-100 w-75" />
+                </a>
                 <div class="collapse navbar-collapse justify-content-center d-flex" id="navbarCollapse">
-                    <div class="navbar-nav d-sm-flex flex-row">
+                    <div class="navbar-nav flex-row">
                         {{ html()
                         ->a(route('home'), 'Inicio ')
                         ->class('nav-item nav-link p-2')

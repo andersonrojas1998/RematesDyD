@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
 
-    public function index($byCategory = 0){
+    public function index($byCategory = 0, $search = null){
 
         $products = Product::all();
+
+        foreach ($products as $product) {
+            $product->category;
+        }
 
         $categories = Category::all();
 
@@ -25,7 +29,7 @@ class ShopController extends Controller
                 )->get()->count();
         }
 
-        return view('shop', compact('categories', 'products', 'byCategory'));
+        return view('shop', compact('categories', 'products', 'byCategory', 'search'));
     }
 
     public function show(Product $product){
@@ -45,18 +49,7 @@ class ShopController extends Controller
         return view('detail', compact('categories','product', 'trendProducts'));
     }
 
-    public function productsByCategory($category){
-        /*if($category != -1){
-            $products = [];
-
-            foreach ($this->products as $product) {
-                if($product['category'] == $category){
-                    $products[] = $product;
-                }
-            }
-            return response()->json($products);
-        }else{
-            return response()->json($this->products);
-        }*/
+    public function search(Request $request){
+        return $this->index(0, $request->all()['query']);
     }
 }

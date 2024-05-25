@@ -39,7 +39,18 @@
         </div>
 
         <div class="col-lg-7 pb-5">
-            <h3 class="font-weight-semi-bold">{{ $product->titulo }}</h3>
+            <h3 class="font-weight-semi-bold">{{ $product->titulo }}
+                @if($product->descuento && $product->descuento > 0)
+                <span class="fa-stack" title="Descuento">
+                    <i class="fas fa-certificate fa-stack-2x text-danger"></i>
+                    <span class="fa fa-stack-1x text-light">
+                        <span class="align-top" style="font-size: 0.7em;">
+                            {{ $product->descuento }}%
+                        </span>
+                    </span>
+                </span>
+                @endif
+            </h3>
             <p class="mb-4">{{ $product->descripcion }}</p>
             <div class="d-flex align-items-center mb-4 pt-2">
                 <a href="https://api.whatsapp.com/send?phone=573102086587&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20compra%20por%20este%20canal" title="Chat whatsapp" target="_blank">

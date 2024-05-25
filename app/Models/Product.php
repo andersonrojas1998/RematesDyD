@@ -14,7 +14,7 @@ class Product extends Model
     protected $appends = ['route'];
 
     public function category(){
-        return $this->hasOne('\App\Models\Category', 'id', 'categorias_id');
+        return $this->hasOne(Category::class, 'id', 'categorias_id');
     }
 
     public function getRouteAttribute(){
