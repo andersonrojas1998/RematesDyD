@@ -36,11 +36,15 @@ Route::get('/administrador', [HomeController::class, 'indexApp'])->name('adminis
 
 Route::group(['prefix' => 'products'], function(){
     Route::get('/list', [ProductsController::class, 'getProducts']);
+    Route::get('/slider', [ProductsController::class, 'getSlider']);
     Route::get('/create-product', [ProductsController::class, 'getIndexCreate']);
+    Route::get('/create-slider', [ProductsController::class, 'getIndexCreateSlider']);
 });
 
 Route::post('prd-submit', [ProductsController::class, 'create']);
+Route::post('prd-submit-slider', [ProductsController::class, 'createSlider']);
 Route::get('/delete-product/{id}', [ProductsController::class, 'deleteProducts']);
+Route::get('/delete-product/slider/{id}', [ProductsController::class, 'deleteSlider']);
 
 
  

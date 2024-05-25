@@ -9,7 +9,7 @@
     <div class="card pt-2" > 
           
         <div class="card-body">
-            <h5 class="card-title">Crecion de Productos</h5>
+            <h5 class="card-title text-center text-success">Crecion de Productos</h5>
             <p class="card-text">Ingrese los productos del almacen.</p>
 
 
@@ -26,10 +26,16 @@
             </div>                        
             <br>
             <div class="row pt-3">               
-                <div class="col-lg-6">
-                <strong>Detalle :  <span class="text-danger">*</span></strong>
-                <textarea   class="form-control" id="detalle" name="detalle" rows="7" cols="70"></textarea>
-                </div>
+                
+            <div class="col-lg-4">
+                    <strong>Categoria:</strong>
+                    <select class="form-control" name="sel_category">
+                        @foreach($categorias as $c)
+                        <option  value="{{ $c->id}}">{{ $c->titulo}}</option>
+                        @endforeach
+                    </select>
+                </div>            
+
                 <div class="col-lg-3">
                     <strong>Descuento:</strong>
                     <input  class="form-control" type="number" name="descuento">
@@ -38,22 +44,18 @@
                     <strong>Imagen:</strong>
                     <input  class="form-control" type="file" name="imagen">
                 </div>            
+
+                <div class="col-lg-6">
+                <strong>Detalle :  <span class="text-danger">*</span></strong>
+                <textarea   class="form-control" id="detalle" name="detalle" rows="7" cols="120"></textarea>
+                </div>
             <div class="col-lg-4 offset-4 pt-5">
                     <button type="submit" class="btn btn-success btn-block"  style="border-radius:5px;">Registrar Producto  <i class="mdi mdi-content-save"></i></button>
-                </div> 
-            
-            
-
-
+            </div>                 
     </div>
-
-
-    
-
     </form>
         </div>
         </div>
-
 </div>
 
 
